@@ -43,7 +43,6 @@ class ReportsController(object):
     def calculate_gross_rev_for_team(self, team_id):
         gross_rev = 0
 
-        #for "each" sale in "new array"  [" where we select" sale for "each" sale in self.sales if sale.team_id == team_id]:
         for sale in [sale for sale in self.sales if sale.team_id == team_id]:
 
             product_matches = [product for product in self.product_master if product.product_id == sale.product_id]
@@ -51,7 +50,6 @@ class ReportsController(object):
             if len(product_matches) > 0:
                 product = product_matches[0]
             else:
-                #product is not found
                 continue
 
             gross_rev += sale.qty * product.product_price * product.product_lot_size

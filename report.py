@@ -3,9 +3,7 @@ from team_map import TeamMap
 from product_master import ProductMaster
 from sales import Sales
 from reports_controller import ReportsController
-#python3 report.py -t TeamMap.csv -p ProductMaster.csv -s Sales.csv --team-report=TeamReport.csv --product-report=ProductReport.csv
 
-# Parse command-line arguments
 parser = argparse.ArgumentParser()
 parser.add_argument('-t', '--team-map', required=True,
                     help='file containing team mapping')
@@ -19,10 +17,8 @@ parser.add_argument('--product-report', required=True,
                     help='output file for product report')
 args = parser.parse_args()
 
-# Read team mapping from file
-
-team_map_file = open(args.team_map) #opens the file path to csv file that user input
-team_map = TeamMap(team_map_file) #this is a dictionary created using the csv file entries
+team_map_file = open(args.team_map)
+team_map = TeamMap(team_map_file)
 
 product_master_file = open(args.product_master)
 product_master = ProductMaster(product_master_file)
